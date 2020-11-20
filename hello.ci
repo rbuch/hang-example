@@ -1,0 +1,15 @@
+mainmodule hello {
+  readonly CProxy_Main mainProxy;
+  readonly int nElements;
+  readonly int iters;
+
+  mainchare Main {
+    entry Main(CkArgMsg*);
+    entry void done();
+  };
+
+  array [Fancy] Hello {
+    entry Hello();
+    entry void SayHi(void);
+  };
+};
