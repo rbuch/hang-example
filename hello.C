@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <chrono>
+#include <thread>
 // *MUST* include "charm++.h" to inherit from CkArrayIndex
 #include "charm++.h"
 
@@ -100,10 +101,11 @@ public:
   void SayHi() {
     counter++;
     const int value = thisIndex.getValue();
-    CkPrintf("[%d] Hi[%d] from element %d\n", CkMyPe(), counter, value);
+    CkPrintf("[%d] Iter %d from element %d\n", CkMyPe(), counter, value);
     if (value + 1 < nElements)
       thisProxy[Fancy(thisIndex.getValue() + 1)].SayHi();
 
+    //std::this_thread::sleep_for (std::chrono::milliseconds(1000));
     if (counter < iters) {
       AtSync();
     } else {
