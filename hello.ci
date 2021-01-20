@@ -8,7 +8,7 @@ mainmodule hello {
     entry void done();
   };
 
-  array [Fancy] Hello {
+  array [1d] Hello {
     entry Hello();
     entry void SayHi(void);
   };
